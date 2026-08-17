@@ -1,0 +1,13 @@
+<!--
+Note for future self:
+- These properties are shared between all projects in the solution;
+- Any property defined here can be explicitly overridden in any of said projects.
+-->
+<Project>
+	<!-- Order of imports matters folks -->
+	<Import Project="$(MSBuildThisFileDirectory)props\Common.props" /> <!-- this sets things
+	NuGet.props and Versioning.props need -->
+
+	<Import Project="$(MSBuildThisFileDirectory)props\Analyzers.props" />
+	<Import Project="$(MSBuildThisFileDirectory)props\Versioning.props" />
+</Project>
