@@ -1,1 +1,238 @@
-# TODO
+name: Publish and release
+
+on:
+  workflow_dispatch:
+    inputs:
+      debug_mode:
+        description: "Run the workflow in Debug Mode (skips GitHub release)."
+        required: true
+        type: boolean
+        default: false
+      run_sonar:
+        description: "Analyze with Sonar and fail if quality gate fails. If set to false, also skips past testing."
+        required: true
+        type: boolean
+        default: true
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: read
+
+jobs:
+
+  # Extracts the version from the project properties or the tag name.
+  extract-version:
+    name: Extract version variable
+    runs-on: ubuntu-latest
+    outputs:
+      semver: ${{ steps.set-semver-var.outputs.semver }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - id: set-semver-var
+        name: Set version variable
+        shell: pwsh
+        run: ./.github/workflows/scripts/set-semver-var.ps1 -RefType "${{ github.ref_type }}" -RefName "${{ github.ref_name }}"
+
+  # Performs an analysis with Sonar.
+  sonar-analysis:
+    name: Analyze with Sonar
+    needs: extract-version
+    runs-on: ubuntu-latest
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SEMVER: ${{ needs.extract-version.outputs.semver }}
+    steps:
+      - name: Checkout repo
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.x.x'
+
+      - name: Setup JDK
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        uses: actions/setup-java@v5
+        with:
+          java-version: 21
+          distribution: 'zulu'
+
+      - name: Restore solution
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        run: dotnet restore
+
+      - name: Cache SonarQube Cloud packages
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        uses: actions/cache@v5
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache SonarQube Cloud scanner
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        id: cache-sonar-scanner
+        uses: actions/cache@v5
+        with:
+          path: ${{ runner.temp }}/scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+
+      - name: Install SonarQube Cloud scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true' && (github.ref_type == 'tag' || inputs.run_sonar == true)
+        run: |
+          mkdir -p ${{ runner.temp }}/scanner
+          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}/scanner
+
+      - name: Begin analysis
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        run: |
+          ${{ runner.temp }}/scanner/dotnet-sonarscanner begin \
+            /k:"oas_waveIDE" \
+            /o:"oas" \
+            /v:"${{ env.SEMVER }}" \
+            /d:sonar.token="${{ env.SONAR_TOKEN }}" \
+            /d:sonar.cs.vscoveragexml.reportsPaths="**/TestResults/**/*.xml" \
+            /d:sonar.exclusions="**/*.png,**/*.jpg,**/*.jpeg,**/*.ico,**/*.gif" \
+            /d:sonar.qualitygate.wait=true \
+            /d:sonar.qualitygate.timeout=90
+
+      - name: Build solution in Debug mode
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        run: dotnet build --configuration Debug --no-restore
+
+      - name: Test with coverage output
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        run: dotnet test --framework net10.0 --configuration Debug --no-build -- --coverage --coverage-output-format xml
+
+      - name: End analysis
+        if: github.ref_type == 'tag' || inputs.run_sonar == true
+        run: ${{ runner.temp }}/scanner/dotnet-sonarscanner end /d:sonar.token="${{ env.SONAR_TOKEN }}"
+
+  # Builds necessary binaries.
+  build-binaries:
+    name: Build binaries
+    needs: sonar-analysis
+
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - os: ubuntu-latest
+            arch: x64
+            rid-os: linux
+          - os: ubuntu-latest
+            arch: arm64
+            rid-os: linux
+          - os: ubuntu-latest
+            arch: arm
+            rid-os: linux
+
+          - os: windows-latest
+            arch: x64
+            rid-os: win
+          - os: windows-latest
+            arch: arm64
+            rid-os: win
+
+          - os: macos-latest
+            arch: x64
+            rid-os: osx
+          - os: macos-latest
+            arch: arm64
+            rid-os: osx
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v7
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v6
+      with:
+        dotnet-version: '10.x.x'
+
+    - name: Install Linux ARM compilation toolchain
+      if: matrix.rid-os == 'linux' && matrix.arch == 'arm'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y binutils-arm-linux-gnueabihf gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+
+    - name: Install Linux ARM64 compilation toolchain
+      if: matrix.rid-os == 'linux' && matrix.arch == 'arm64'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+
+    - name: Restore solution
+      run: dotnet restore
+
+    - name: Publish launcher
+      shell: pwsh
+      run: ./.github/workflows/scripts/publish-native-aot.ps1 'launcher' "${{ matrix.rid-os }}" "${{ matrix.arch }}"
+
+    - name: Upload launcher artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: waveIDE-${{ matrix.rid-os }}-${{ matrix.arch }}
+        path: ./dist/launcher-${{ matrix.rid-os }}-${{ matrix.arch }}
+        if-no-files-found: error
+
+  release:
+    name: Release on GitHub
+
+    permissions:
+      id-token: write
+      contents: write
+      attestations: write
+      artifact-metadata: write
+
+    needs: [extract-version, build-binaries]
+    runs-on: ubuntu-latest
+
+    env:
+      SEMVER: ${{ needs.extract-version.outputs.semver }}
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v7
+      with:
+        fetch-depth: 0
+
+    - name: Download all artifacts
+      uses: actions/download-artifact@v8
+      with:
+        path: ./all-binaries
+
+    - name: Generate changelog
+      run: |
+        npx git-cliff@latest -o ${{ github.workspace }}-CHANGELOG.md --latest
+        cat ${{ github.workspace }}-CHANGELOG.md
+        
+    - name: Prepare release assets
+      shell: pwsh
+      run: ./.github/workflows/scripts/prepare-assets.ps1
+
+    - name: Attest release assets
+      uses: actions/attest@v4
+      with:
+        subject-path: "./release-assets/*.tar.gz, ./release-assets/*.zip"
+
+    - name: Create GitHub Release
+      if: github.ref_type == 'tag' || inputs.debug_mode != true
+      uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 # 3.0.2
+      with:
+        files: "./release-assets/*.tar.gz, ./release-assets/*.zip"
+        body_path: ${{ github.workspace }}-CHANGELOG.md
+        name: waveIDE ${{ env.SEMVER }}

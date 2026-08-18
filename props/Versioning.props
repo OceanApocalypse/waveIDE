@@ -1,4 +1,4 @@
-<!-- Properties related to RSML versioning. -->
+<!-- Properties related to waveID versioning. -->
 <Project>
     <!-- XXX: Change all of these on a new version -->
     <PropertyGroup Label="Versioning Data">

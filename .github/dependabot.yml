@@ -9,7 +9,7 @@ updates:
       cronjob: "0 7 * * TUE,THU"
       timezone: "Europe/Lisbon"
     open-pull-requests-limit: 12
-    target-branch: "dev"
+    target-branch: "main"
     rebase-strategy: "auto"
     groups:
       avalonia:
