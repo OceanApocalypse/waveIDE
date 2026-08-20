@@ -1,20 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<RootNamespace>OceanApocalypse.Wave.IDE.UI</RootNamespace>
-		<OutputType>WinExe</OutputType>
 		<TargetFramework>net10.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Models\" />
-		<AvaloniaResource Include="..\..\..\assets\**" />
+		<AvaloniaResource Include="Assets\**" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Avalonia" />
-		<PackageReference Include="Avalonia.Desktop" />
 		<PackageReference Include="Avalonia.Themes.Fluent" />
 		<PackageReference Include="Avalonia.Fonts.Inter" />
 		<PackageReference Include="AvaloniaUI.DiagnosticsSupport">

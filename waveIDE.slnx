@@ -1,34 +1,42 @@
-<Solution>
-  <Folder Name="/Assets/">
-    <File Path="assets/avalonia-logo.ico" />
-  </Folder>
-  <Folder Name="/GitHub Setup/">
-    <File Path=".github/CODEOWNERS" />
-    <File Path=".github/dependabot.yml" />
-    <File Path=".github/FUNDING.yml" />
-  </Folder>
-  <Folder Name="/GitHub Setup/Workflows/">
-    <File Path=".github/workflows/ci.yml" />
-    <File Path=".github/workflows/release.yml" />
-  </Folder>
-  <Folder Name="/Solution Items/">
-    <File Path=".gitignore" />
-    <File Path="LICENSE.txt" />
-    <File Path="LICENSING-NOTES.txt" />
-    <File Path="README.md" />
-    <File Path="SECURITY.md" />
-  </Folder>
-  <Folder Name="/Solution Properties/">
-    <File Path="Directory.Build.props" />
-    <File Path="Directory.Packages.props" />
-    <File Path="props/Analyzers.props" />
-    <File Path="props/Common.props" />
-    <File Path="props/Versioning.props" />
-  </Folder>
-  <Folder Name="/Source/" />
-  <Folder Name="/Source/Engine/" />
-  <Folder Name="/Source/UI/">
-    <Project Path="src/ui/waveIDE.UI/waveIDE.UI.csproj" />
-  </Folder>
-  <Folder Name="/Tests/" />
+﻿<Solution>
+    <Folder Name="/Assets/">
+        <File Path="assets/avalonia-logo.ico" />
+    </Folder>
+    <Folder Name="/GitHub Setup/">
+        <File Path=".github/CODEOWNERS" />
+        <File Path=".github/dependabot.yml" />
+        <File Path=".github/FUNDING.yml" />
+    </Folder>
+    <Folder Name="/GitHub Setup/Workflows/">
+        <File Path=".github/workflows/ci.yml" />
+        <File Path=".github/workflows/release.yml" />
+    </Folder>
+    <Folder Name="/Solution Items/">
+        <File Path=".gitignore" />
+        <File Path="LICENSE.txt" />
+        <File Path="LICENSING-NOTES.txt" />
+        <File Path="README.md" />
+        <File Path="SECURITY.md" />
+    </Folder>
+    <Folder Name="/Solution Properties/">
+        <File Path="Directory.Build.props" />
+        <File Path="Directory.Packages.props" />
+        <File Path="props/Analyzers.props" />
+        <File Path="props/Common.props" />
+        <File Path="props/Versioning.props" />
+    </Folder>
+    <Folder Name="/Source/" />
+    <Folder Name="/Source/Engine/" />
+    <Folder Name="/Source/UI/">
+        <Project Path="src/ui/waveIDE.UI/waveIDE.UI.csproj" />
+        <Project Path="src/ui/waveIDE.UI.Android/waveIDE.UI.Android.csproj">
+            <Deploy />
+        </Project>
+        <Project Path="src/ui/waveIDE.UI.Browser/waveIDE.UI.Browser.csproj" />
+        <Project Path="src/ui/waveIDE.UI.Desktop/waveIDE.UI.Desktop.csproj" />
+        <Project Path="src/ui/waveIDE.UI.iOS/waveIDE.UI.iOS.csproj">
+            <Deploy />
+        </Project>
+    </Folder>
+    <Folder Name="/Tests/" />
 </Solution>
