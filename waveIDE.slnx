@@ -1,4 +1,4 @@
-﻿<Solution>
+<Solution>
     <Folder Name="/Assets/">
         <File Path="assets/avalonia-logo.ico" />
     </Folder>
@@ -29,14 +29,8 @@
     <Folder Name="/Source/Engine/" />
     <Folder Name="/Source/UI/">
         <Project Path="src/ui/waveIDE.UI/waveIDE.UI.csproj" />
-        <Project Path="src/ui/waveIDE.UI.Android/waveIDE.UI.Android.csproj">
-            <Deploy />
-        </Project>
         <Project Path="src/ui/waveIDE.UI.Browser/waveIDE.UI.Browser.csproj" />
         <Project Path="src/ui/waveIDE.UI.Desktop/waveIDE.UI.Desktop.csproj" />
-        <Project Path="src/ui/waveIDE.UI.iOS/waveIDE.UI.iOS.csproj">
-            <Deploy />
-        </Project>
     </Folder>
     <Folder Name="/Tests/" />
 </Solution>
