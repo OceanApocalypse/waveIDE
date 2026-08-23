@@ -398,6 +398,14 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+# Visual Studio Code
+.vscode/
+
+# Common cache directories
+.cache/
+.cached/
+.mypy_cache/
+
 # Backup files
 *.old
 *.bak

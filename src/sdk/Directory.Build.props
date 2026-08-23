@@ -1,0 +1,28 @@
+<Project>
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+        <Copyright>Copyright 2026 OceanApocalypse</Copyright>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
+        <Description>waveIDE's plugin SDK.</Description>
+
+        <RepositoryUrl>https://github.com/OceanApocalypse/waveIDE/</RepositoryUrl>
+        <PackageProjectUrl>https://oceanapocalypse.org/waveIDE/</PackageProjectUrl>
+
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.png</PackageIcon>
+
+        <PackageTags>foss;ide;code-editor;extensibility;no-telemetry;plugin-sdk;plugin-system</PackageTags>
+
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup Label="Resources">
+        <None Include="$(MSBuildThisFileDirectory)..\..\assets\icon.png" Pack="true" PackagePath="\"
+            Visible="false" />
+        <None Include="$(MSBuildThisFileDirectory)..\..\README.md" Pack="true" PackagePath="\"
+            Visible="false" />
+    </ItemGroup>
+</Project>

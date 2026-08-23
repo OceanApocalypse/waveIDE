@@ -27,7 +27,7 @@ if ($RefType -eq 'tag') {
     $semver = $RefName.Substring(1)
 }
 else {
-    [xml]$xml = Get-Content ".\props\Versioning.props"
+    [xml]$xml = Get-Content ".\Directory.Build.props"
     $versionPrefix = $xml.SelectSingleNode("//VersionPrefix")?.InnerText
     $versionSuffix = $xml.SelectSingleNode("//VersionSuffix")?.InnerText
     $semver = if ($versionSuffix) { "$versionPrefix$versionSuffix" } else { $versionPrefix }

@@ -21,12 +21,17 @@
     <Folder Name="/Solution Properties/">
         <File Path="Directory.Build.props" />
         <File Path="Directory.Packages.props" />
-        <File Path="props/Analyzers.props" />
-        <File Path="props/Common.props" />
-        <File Path="props/Versioning.props" />
     </Folder>
     <Folder Name="/Source/" />
     <Folder Name="/Source/Engine/" />
+    <Folder Name="/Source/SDK/">
+        <Project Path="src/sdk/waveIDE.SDK.Clients.APIs/waveIDE.SDK.Clients.APIs.csproj" />
+        <Project Path="src/sdk/waveIDE.SDK.Hosts.EventRouting/waveIDE.SDK.Hosts.EventRouting.csproj" />
+        <Project
+            Path="src/sdk/waveIDE.SDK.Infrastructure.Manifests/waveIDE.SDK.Infrastructure.Manifests.csproj" />
+        <Project Path="src/sdk/waveIDE.SDK.Infrastructure/waveIDE.SDK.Infrastructure.csproj" />
+        <Project Path="src/sdk/waveIDE.SDK.Protocol/waveIDE.SDK.Protocol.csproj" />
+    </Folder>
     <Folder Name="/Source/UI/">
         <Project Path="src/ui/waveIDE.UI/waveIDE.UI.csproj" />
         <Project Path="src/ui/waveIDE.UI.Browser/waveIDE.UI.Browser.csproj" />

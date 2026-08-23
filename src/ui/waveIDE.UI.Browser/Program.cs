@@ -12,7 +12,8 @@ internal sealed partial class Program
 {
 	private Program() { }
 
-	private static Task Main(string[] args) => BuildAvaloniaApp()
+	private static Task Main(string[] args) =>
+		BuildAvaloniaApp()
 			.WithInterFont()
 			.StartBrowserAppAsync("out");
 
