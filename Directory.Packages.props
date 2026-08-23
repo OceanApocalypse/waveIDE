@@ -1,31 +1,35 @@
 <Project>
-	<!-- https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management -->
-	<PropertyGroup>
-		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-	</PropertyGroup>
+  <!-- https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Avalonia packages -->
+    <!-- Important: keep version in sync! -->
+    <PackageVersion Include="Avalonia" Version="12.1.1" />
+    <PackageVersion Include="Avalonia.Themes.Fluent" Version="12.1.1" />
+    <PackageVersion Include="Avalonia.Fonts.Inter" Version="12.1.1" />
+    <PackageVersion Include="Avalonia.Desktop" Version="12.1.1" />
+    <PackageVersion Include="Avalonia.Browser" Version="12.1.1" />
+    <PackageVersion Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.3" />
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
 
-	<ItemGroup>
-		<!-- Avalonia packages -->
-		<!-- Important: keep version in sync! -->
-		<PackageVersion Include="Avalonia" Version="12.1.1" />
-		<PackageVersion Include="Avalonia.Themes.Fluent" Version="12.1.1" />
-		<PackageVersion Include="Avalonia.Fonts.Inter" Version="12.1.1" />
-		<PackageVersion Include="Avalonia.Desktop" Version="12.1.1" />
-		<PackageVersion Include="Avalonia.Browser" Version="12.1.1" />
-		<PackageVersion Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.3" />
-		<PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <!-- TOML -->
+    <PackageVersion Include="CsToml" Version="1.8.6" />
+    <PackageVersion Include="CsToml.Generator" Version="1.8.6" />
 
-		<!-- TOML -->
-		<PackageVersion Include="CsToml" Version="1.8.6" />
-		<PackageVersion Include="CsToml.Generator" Version="1.8.6" />
+    <!-- CLI -->
+    <PackageVersion Include="System.CommandLine" Version="2.0.11" />
 
-		<!-- CLI -->
-		<PackageVersion Include="System.CommandLine" Version="2.0.11" />
+    <!-- Host <-> Plugin connection -->
+    <PackageVersion Include="Nerdbank.MessagePack" Version="1.2.36" />
+    <PackageVersion Include="StreamJsonRpc" Version="2.25.29" />
 
-		<!-- Tests and benchmarks -->
-		<PackageVersion Include="xunit.v3.mtp-v2" Version="3.2.2" />
-		<PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.9.0" />
-		<PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
-		<PackageVersion Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.15.8" Condition="'$(OS)' == 'Windows_NT'" />
-	</ItemGroup>
+    <!-- Tests and benchmarks -->
+    <PackageVersion Include="xunit.v3.mtp-v2" Version="3.2.2" />
+    <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.9.0" />
+    <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
+    <PackageVersion Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.15.8"
+      Condition="'$(OS)' == 'Windows_NT'" />
+  </ItemGroup>
 </Project>
