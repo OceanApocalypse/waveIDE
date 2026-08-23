@@ -5,6 +5,7 @@ using Avalonia.Markup.Xaml;
 
 using OceanApocalypse.Wave.IDE.UI.ViewModels;
 using OceanApocalypse.Wave.IDE.UI.Views;
+using System;
 
 namespace OceanApocalypse.Wave.IDE.UI;
 
@@ -40,6 +41,10 @@ public partial class App : Application
 			{
 				Page = new MainView { DataContext = new MainViewModel() }
 			};
+		}
+		else
+		{
+			throw new InvalidOperationException("waveIDE is not supported in this platform.");
 		}
 
 		base.OnFrameworkInitializationCompleted();
