@@ -26,9 +26,8 @@
     <Folder Name="/Source/Engine/" />
     <Folder Name="/Source/SDK/">
         <Project Path="src/sdk/waveIDE.SDK.Clients.APIs/waveIDE.SDK.Clients.APIs.csproj" />
-        <Project Path="src/sdk/waveIDE.SDK.Hosts.EventRouting/waveIDE.SDK.Hosts.EventRouting.csproj" />
-        <Project
-            Path="src/sdk/waveIDE.SDK.Infrastructure.Manifests/waveIDE.SDK.Infrastructure.Manifests.csproj" />
+        <Project Path="src/sdk/waveIDE.SDK.Clients/waveIDE.SDK.Clients.csproj" />
+        <Project Path="src/sdk/waveIDE.SDK.Infrastructure.Manifests/waveIDE.SDK.Infrastructure.Manifests.csproj" />
         <Project Path="src/sdk/waveIDE.SDK.Infrastructure/waveIDE.SDK.Infrastructure.csproj" />
         <Project Path="src/sdk/waveIDE.SDK.Protocol/waveIDE.SDK.Protocol.csproj" />
     </Folder>

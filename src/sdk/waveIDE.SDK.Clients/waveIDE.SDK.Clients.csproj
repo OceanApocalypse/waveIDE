@@ -2,13 +2,12 @@
 
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
-		<RootNamespace>OceanApocalypse.Wave.SDK.Protocol</RootNamespace>
+		<RootNamespace>OceanApocalypse.Wave.SDK.Clients</RootNamespace>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Nerdbank.MessagePack" />
-		<PackageReference Include="StreamJsonRpc" />
+		<ProjectReference Include="..\waveIDE.SDK.Clients.APIs\waveIDE.SDK.Clients.APIs.csproj" />
 	</ItemGroup>
 
 </Project>
