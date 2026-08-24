@@ -33,7 +33,6 @@
     </Folder>
     <Folder Name="/Source/UI/">
         <Project Path="src/ui/waveIDE.UI/waveIDE.UI.csproj" />
-        <Project Path="src/ui/waveIDE.UI.Browser/waveIDE.UI.Browser.csproj" />
         <Project Path="src/ui/waveIDE.UI.Desktop/waveIDE.UI.Desktop.csproj" />
     </Folder>
     <Folder Name="/Tests/" />
