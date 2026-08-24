@@ -22,7 +22,9 @@
         <File Path="Directory.Build.props" />
         <File Path="Directory.Packages.props" />
     </Folder>
-    <Folder Name="/Source/" />
+    <Folder Name="/Source/">
+        <Project Path="src/launcher/waveIDE.Launcher.csproj" />
+    </Folder>
     <Folder Name="/Source/Engine/" />
     <Folder Name="/Source/SDK/">
         <Project Path="src/sdk/waveIDE.SDK.Clients.APIs/waveIDE.SDK.Clients.APIs.csproj" />
@@ -32,7 +34,6 @@
         <Project Path="src/sdk/waveIDE.SDK.Protocol/waveIDE.SDK.Protocol.csproj" />
     </Folder>
     <Folder Name="/Source/UI/">
-        <Project Path="src/ui/waveIDE.UI/waveIDE.UI.csproj" />
         <Project Path="src/ui/waveIDE.UI.Desktop/waveIDE.UI.Desktop.csproj" />
     </Folder>
     <Folder Name="/Tests/" />

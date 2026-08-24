@@ -10,6 +10,11 @@
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 	</PropertyGroup>
 
+	<PropertyGroup Label="Native AOT Setup">
+		<PublishAot>true</PublishAot>
+		<IsAotCompatible>true</IsAotCompatible>
+	</PropertyGroup>
+
 	<PropertyGroup>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
@@ -19,6 +24,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\waveIDE.UI\waveIDE.UI.csproj" />
+		<ProjectReference Include="..\..\launcher\waveIDE.Launcher.csproj" />
 	</ItemGroup>
 </Project>

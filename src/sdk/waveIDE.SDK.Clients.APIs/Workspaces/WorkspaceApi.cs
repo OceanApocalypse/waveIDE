@@ -1,5 +1,3 @@
-using System;
-
 namespace OceanApocalypse.Wave.SDK.Clients.APIs.Workspaces;
 
 /// <summary>
