@@ -1,3 +1,5 @@
+using System;
+
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls;
@@ -5,9 +7,8 @@ using Avalonia.Markup.Xaml;
 
 using OceanApocalypse.Wave.IDE.UI.ViewModels;
 using OceanApocalypse.Wave.IDE.UI.Views;
-using System;
 
-namespace OceanApocalypse.Wave.IDE.UI;
+namespace OceanApocalypse.Wave.IDE;
 
 public partial class App : Application
 {

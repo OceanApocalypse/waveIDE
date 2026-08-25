@@ -2,8 +2,6 @@ using System;
 
 using Avalonia;
 
-using OceanApocalypse.Wave.IDE.UI;
-
 namespace OceanApocalypse.Wave.IDE.UI.Desktop;
 
 sealed class Program

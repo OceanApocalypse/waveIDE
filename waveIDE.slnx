@@ -23,7 +23,7 @@
         <File Path="Directory.Packages.props" />
     </Folder>
     <Folder Name="/Source/">
-        <Project Path="src/launcher/waveIDE.Launcher.csproj" />
+        <Project Path="src/launcher/waveIDE.csproj" />
     </Folder>
     <Folder Name="/Source/Engine/" />
     <Folder Name="/Source/SDK/">
@@ -36,5 +36,7 @@
     <Folder Name="/Source/UI/">
         <Project Path="src/ui/waveIDE.UI.Desktop/waveIDE.UI.Desktop.csproj" />
     </Folder>
-    <Folder Name="/Tests/" />
+    <Folder Name="/Tests/">
+        <Project Path="tests/sdk/waveIDE.IpcTestServerLauncher/waveIDE.IpcTestServerLauncher.csproj" Id="9b11241a-0cd5-4c76-b914-f96a69c63a95" />
+    </Folder>
 </Solution>

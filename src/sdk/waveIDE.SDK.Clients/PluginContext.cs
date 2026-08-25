@@ -1,4 +1,5 @@
-﻿using OceanApocalypse.Wave.SDK.Clients.APIs.Workspaces;
+using System;
+using System.Threading.Tasks;
 
 namespace OceanApocalypse.Wave.SDK.Clients;
 
@@ -7,5 +8,5 @@ namespace OceanApocalypse.Wave.SDK.Clients;
 /// </summary>
 public sealed class PluginContext
 {
-    public WorkspaceApi Workspace { get; }
+	public async Task DisconnectAsync() => throw new NotImplementedException(); // todo
 }

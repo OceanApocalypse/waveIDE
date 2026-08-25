@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<RootNamespace>OceanApocalypse.Wave.IDE.Launcher</RootNamespace>
+		<RootNamespace>OceanApocalypse.Wave.IDE</RootNamespace>
 		<TargetFramework>net10.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
