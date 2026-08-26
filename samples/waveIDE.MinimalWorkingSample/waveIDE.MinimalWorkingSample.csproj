@@ -1,18 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<RootNamespace>OceanApocalypse.Wave.IDE.Samples.MinimalWorkingSample</RootNamespace>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net10.0</TargetFramework>
-		<RootNamespace>OceanApocalypse.Wave.SDK.Tests.IpcLauncher</RootNamespace>
 		<Nullable>enable</Nullable>
 		<PublishAot>true</PublishAot>
 		<InvariantGlobalization>true</InvariantGlobalization>
-
-		<EnableStreamJsonRpcInterceptors>true</EnableStreamJsonRpcInterceptors>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\src\sdk\waveIDE.SDK.Protocol\waveIDE.SDK.Protocol.csproj" />
+		<ProjectReference Include="..\..\src\sdk\waveIDE.SDK.Protocol\waveIDE.SDK.Protocol.csproj" />
+		<ProjectReference Include="..\..\tests\sdk\waveIDE.IpcTestServerLauncher\waveIDE.IpcTestServerLauncher.csproj" />
 	</ItemGroup>
 
 </Project>

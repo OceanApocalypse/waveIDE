@@ -1,32 +1,35 @@
 <Solution>
-    <Folder Name="/Assets/">
-        <File Path="assets/avalonia-logo.ico" />
-    </Folder>
-    <Folder Name="/GitHub Setup/">
-        <File Path=".github/CODEOWNERS" />
-        <File Path=".github/dependabot.yml" />
-        <File Path=".github/FUNDING.yml" />
-    </Folder>
-    <Folder Name="/GitHub Setup/Workflows/">
-        <File Path=".github/workflows/ci.yml" />
-        <File Path=".github/workflows/release.yml" />
-    </Folder>
-    <Folder Name="/Solution Items/">
+    <Folder Name="/Items/">
         <File Path=".gitignore" />
         <File Path="LICENSE.txt" />
         <File Path="LICENSING-NOTES.txt" />
         <File Path="README.md" />
         <File Path="SECURITY.md" />
     </Folder>
-    <Folder Name="/Solution Properties/">
+    <Folder Name="/Items/Assets/">
+        <File Path="assets/avalonia-logo.ico" />
+    </Folder>
+    <Folder Name="/Items/GitHub Setup/">
+        <File Path=".github/CODEOWNERS" />
+        <File Path=".github/dependabot.yml" />
+        <File Path=".github/FUNDING.yml" />
+    </Folder>
+    <Folder Name="/Items/GitHub Setup/Workflows/">
+        <File Path=".github/workflows/ci.yml" />
+        <File Path=".github/workflows/release.yml" />
+    </Folder>
+    <Folder Name="/Properties/">
         <File Path="Directory.Build.props" />
         <File Path="Directory.Packages.props" />
+    </Folder>
+    <Folder Name="/Samples/">
+        <Project Path="samples/waveIDE.MinimalWorkingSample/waveIDE.MinimalWorkingSample.csproj" Id="b924251c-cb3f-455a-95fc-fba6d3090184" />
     </Folder>
     <Folder Name="/Source/">
         <Project Path="src/launcher/waveIDE.csproj" />
     </Folder>
     <Folder Name="/Source/Engine/" />
-    <Folder Name="/Source/SDK/">
+    <Folder Name="/Source/Plugin System/">
         <Project Path="src/sdk/waveIDE.SDK.Clients.APIs/waveIDE.SDK.Clients.APIs.csproj" />
         <Project Path="src/sdk/waveIDE.SDK.Clients/waveIDE.SDK.Clients.csproj" />
         <Project Path="src/sdk/waveIDE.SDK.Infrastructure.Manifests/waveIDE.SDK.Infrastructure.Manifests.csproj" />
@@ -36,7 +39,8 @@
     <Folder Name="/Source/UI/">
         <Project Path="src/ui/waveIDE.UI.Desktop/waveIDE.UI.Desktop.csproj" />
     </Folder>
-    <Folder Name="/Tests/">
+    <Folder Name="/Tests/" />
+    <Folder Name="/Tests/Plugin System/">
         <Project Path="tests/sdk/waveIDE.IpcTestServerLauncher/waveIDE.IpcTestServerLauncher.csproj" Id="9b11241a-0cd5-4c76-b914-f96a69c63a95" />
     </Folder>
 </Solution>

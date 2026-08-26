@@ -23,7 +23,7 @@ public static class IpcTransportFactory
     /// </summary>
     /// <returns>The endpoint, containing the created GUID.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string CreateEndpoint() => CreateEndpoint(Guid.NewGuid());
+    public static string CreateEndpointString() => CreateEndpointString(Guid.NewGuid());
 
     /// <summary>
     /// Creates a waveIDE endpoint from a GUID.
@@ -31,7 +31,7 @@ public static class IpcTransportFactory
     /// <param name="guid">The GUID.</param>
     /// <returns>The endpoint, containing the GUID.</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static string CreateEndpoint(Guid guid)
+	public static string CreateEndpointString(Guid guid)
 	{
 		var @base = $"waveIDE-{guid:N}";
 		return OperatingSystem.IsWindows() ? @base : Path.Join(Path.GetTempPath(), $"{@base}.sock");
@@ -43,9 +43,16 @@ public static class IpcTransportFactory
     /// <param name="baseEndpoint">The base string for the endpoint.</param>
     /// <returns>The actual endpoint.</returns>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	public static string CreateEndpoint(string baseEndpoint) =>
+	public static string CreateEndpointString(string baseEndpoint) =>
         OperatingSystem.IsWindows() ? baseEndpoint : Path.Join(Path.GetTempPath(), $"{baseEndpoint}.sock");
 
+    /// <summary>
+    /// Connects to the server at the given endpoint.
+    /// </summary>
+    /// <param name="endpoint">The endpoint to connect to.</param>
+    /// <param name="cancellationToken">A token that, when cancelled, cancels the operations.</param>
+    /// <returns>The IPC transport listener.</returns>
+    /// <exception cref="PlatformNotSupportedException">Platform does not support IPC transports.</exception>
 	public static async Task<Stream> ConnectToHostAsync(string endpoint, CancellationToken cancellationToken)
     {
 		if (!IsPlatformSupported)
@@ -63,25 +70,36 @@ public static class IpcTransportFactory
         return new NetworkStream(socket);
     }
 
-    public static IDisposable CreateServer(string endpoint, out ServerConnectionEstablishedCallback connectionCallback)
+    /// <summary>
+    /// Creates a server at the default endpoint, which is the string <c>"waveIDE-"</c>
+    /// followed by a random GUID.
+    /// </summary>
+    /// <returns>The IPC transport listener.</returns>
+    public static IIpcTransportListener CreateServerWithDefaultEndpoint() => CreateServer(CreateEndpointString());
+
+    /// <summary>
+    /// Creates a server at the given endpoint.
+    /// </summary>
+    /// <param name="endpoint">The endpoint to start the server at.</param>
+    /// <returns>The IPC transport listener.</returns>
+    /// <exception cref="PlatformNotSupportedException">Platform does not support IPC transports.</exception>
+    public static IIpcTransportListener CreateServer(string endpoint)
     {
 		if (!IsPlatformSupported)
-		    throw new PlatformNotSupportedException("waveIDE for browser does not support plugins.");
+			throw new PlatformNotSupportedException("Platform does not support IPC transports.");
 
-        if (OperatingSystem.IsWindows())
+		if (OperatingSystem.IsWindows())
         {
             var server = new NamedPipeServerStream(
                 endpoint, PipeDirection.InOut, 1,
                 PipeTransmissionMode.Byte, PipeOptions.Asynchronous
             );
 
-            connectionCallback = async cancellationToken =>
-            {
-                await server.WaitForConnectionAsync(cancellationToken);
-                return server;
-            };
-
-            return server;
+            return new GenericIpcTransportListener(server, async cancellationToken =>
+			{
+				await server.WaitForConnectionAsync(cancellationToken);
+				return server;
+			});
         }
 
         if (File.Exists(endpoint))
@@ -91,12 +109,10 @@ public static class IpcTransportFactory
         listener.Bind(new UnixDomainSocketEndPoint(endpoint));
         listener.Listen(1);
 
-        connectionCallback = async cancellationToken =>
-        {
-            var accepted = await listener.AcceptAsync(cancellationToken);
-            return new NetworkStream(accepted, true);
-        };
-
-        return listener;
+		return new GenericIpcTransportListener(listener, async cancellationToken =>
+		{
+			var accepted = await listener.AcceptAsync(cancellationToken);
+			return new NetworkStream(accepted, true);
+		});
     }
 }
