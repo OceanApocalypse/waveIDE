@@ -21,7 +21,7 @@
     <PackageVersion Include="System.CommandLine" Version="2.0.11" />
 
     <!-- Host <-> Plugin connection -->
-    <PackageVersion Include="Nerdbank.MessagePack" Version="1.2.36" />
+    <PackageVersion Include="Nerdbank.MessagePack" Version="1.3.85" />
     <PackageVersion Include="StreamJsonRpc" Version="2.25.29" />
 
     <!-- Tests and benchmarks -->
