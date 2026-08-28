@@ -38,6 +38,10 @@ internal sealed class Program
 		Debug.Assert(len == str.Length);
 		await proxy.Log("Minimal Working Sample").ConfigureAwait(false);
 
+		await proxy.Log("See... it doesn't die").ConfigureAwait(false);
+
+		await rpc.Completion.ConfigureAwait(false);
+
 		return 0;
 	}
 
