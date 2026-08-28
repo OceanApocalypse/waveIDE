@@ -23,17 +23,17 @@
         <File Path="Directory.Packages.props" />
     </Folder>
     <Folder Name="/Samples/">
-        <Project Path="samples/waveIDE.MinimalWorkingSample/waveIDE.MinimalWorkingSample.csproj" Id="b924251c-cb3f-455a-95fc-fba6d3090184" />
+        <Project Path="samples/minimal-working-sample/waveIDE.MinimalWorkingSample.csproj" Id="b924251c-cb3f-455a-95fc-fba6d3090184" />
     </Folder>
     <Folder Name="/Source/">
         <Project Path="src/launcher/waveIDE.csproj" />
+        <Project Path="src/infra/waveIDE.Infrastructure.csproj" />
     </Folder>
     <Folder Name="/Source/Engine/" />
     <Folder Name="/Source/Plugin System/">
         <Project Path="src/sdk/waveIDE.SDK.Clients.APIs/waveIDE.SDK.Clients.APIs.csproj" />
         <Project Path="src/sdk/waveIDE.SDK.Clients/waveIDE.SDK.Clients.csproj" />
         <Project Path="src/sdk/waveIDE.SDK.Infrastructure.Manifests/waveIDE.SDK.Infrastructure.Manifests.csproj" />
-        <Project Path="src/sdk/waveIDE.SDK.Infrastructure/waveIDE.SDK.Infrastructure.csproj" />
         <Project Path="src/sdk/waveIDE.SDK.Protocol/waveIDE.SDK.Protocol.csproj" />
     </Folder>
     <Folder Name="/Source/UI/">
