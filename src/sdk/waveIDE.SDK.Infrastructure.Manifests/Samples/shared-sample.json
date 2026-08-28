@@ -1,0 +1,140 @@
+// Shared manifest - for when a single plugin supports multiple SDKs, operating systems, etc
+{
+	// The main metadata - must be shared
+	"plugin": {
+		"id": "dev.bob.my-plugin", // the plugin's unique ID
+		"version": "3.0.1", // the version of the plugin - mandatory
+		"displayName": "Bob's Awesome Plugin", // the display name of the plugin
+		"author": "Bob", // the name of the author
+		"license": "Apache-2.0", // the SPDX license expression of the plugin
+		"language": "C#" // the programming language the plugin is written it - used only for metadata
+	},
+
+	// URLs - if you only have one, you may place it at 'plugin', property 'url' - must be shared
+	"urls": [
+		{
+			// types are: source, docs, home, tracker, other
+			"type": "source",
+			"value": "https://example.com/invent/"
+		},
+		{
+			// the name is exactly what you think it is
+			"name": "Read The Docs",
+			"type": "docs",
+			"value": "https://example.com/docs/"
+		},
+		{
+			"type": "home",
+			"value": "https://example.com/" // the actual URL
+		}
+	],
+
+	// Defines permissions - must be shared
+	"permissions": {
+		// Scopes vary with the editor and so varies the syntax of their definitions
+		"scopes": [
+			"trust:read",
+			"workspace:read",
+			"workspace:write",
+			"debug:write"
+		]
+	},
+
+	// Defines the compatibility contract - can be shared, but overriden or added to in specifics
+	"compatibility": {
+		"apiVersion": "2.x.x-beta", // for stable, you can just do "2"; this field is mandatory
+
+		// editors where the compatibility with the plugin is known to exist - tested
+		// it's the editor that enforces this policy
+		// all the SDK does is clean up and interpret 'a:b' syntax
+		"compatibleEditors": [
+			// the following syntax reference is specific to waveIDE
+			"waveIDE", // targetting all versions for an editor
+			"waveIDE:*", // same as above
+			"waveIDE:3", // specific major version
+			"waveIDE:3-1", // major version ranges
+			"waveIDE:3.0", // specific minor versions
+			"waveIDE:3.0.1", // specific patch versions
+			"waveIDE:2-", // every version until a given one (included),
+			"waveIDE:3.0.1-/",
+			"waveIDE:3.1-2.9.0", // minor and patch ranges
+			"waveIDE:2026", // year (any version dating '26 is compatible)
+			"waveIDE:latest" // latest version
+		],
+
+		// editors where the compatibility with the plugin is known to not exist - tested
+		"incompatibleEditors": [
+			// same syntax applies
+			"waveIDE:beta"
+		],
+
+		// defaults to false (if set to true, any editor not in 'compatible' is automatically incompatible)
+		// if set to false, editors not in 'compatible' are considered compatible, but untested
+		// it's up to the editor to decide whether something untested should try to run or straight up be disabled
+		"unspecifiedAreStrictlyIncompatible": true
+	},
+
+	// no entry point can be here
+
+	// Adds themes - can be shared, but overriden or added to in specifics
+	"themes": [
+		{
+			"name": "Example Theme",
+			"file": "path/to/theme"
+		},
+		{
+			"name": "Bob's Amazing Theme",
+			"file": "my/theme/file"
+		}
+	],
+
+	// Adds localization support - can be shared, but overriden or added to in specifics
+	"locales": [
+		{
+			"isoName": "pt",
+			"name": "pt-PT",
+			"file": "path/to/locale"
+		},
+		{
+			"isoName": "sk",
+			"name": "sk-SK",
+			"file": "path/to/file"
+		}
+	],
+
+	// Adds language support - can be shared, but overriden or added to in specifics
+	"languages": [
+		{
+			"id": "rsml",
+			"name": "Red Sea Modern Language",
+			"fileExtensions": [ "rsea", "rsml", "decision" ],
+			"mimeType": "application/rsml",
+			"capabilities": {
+				"lsp": true,
+				"formatter": true,
+				"debugger": true
+			}
+		}
+	],
+
+	// specific to shared - order doesn't matter - it is ordered by specificity
+	"variants": [
+		{
+			"apiVersion": "3.x.x",
+			"path": "Sdk3"
+		},
+		{
+			"apiVersion": "3", // same as 3.x.x
+			"arch": "arm64",
+			"path": "Sdk3Arm64"
+		},
+		{
+			"apiVersion": "2",
+			"os": "linux",
+			"arch": "x64",
+			"path": "Sdk2LinuxX64"
+		}
+
+		// on a machine where waveIDE uses SDK v3 and the CPU architecture is arm64, Sdk3Arm64 will be chosen over Sdk3
+	]
+}
