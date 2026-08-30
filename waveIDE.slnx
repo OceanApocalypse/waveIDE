@@ -2,7 +2,7 @@
     <Folder Name="/Items/">
         <File Path=".gitignore" />
         <File Path="LICENSE.txt" />
-        <File Path="LICENSING-NOTES.txt" />
+        <File Path="LICENSING-NOTES.md" />
         <File Path="README.md" />
         <File Path="SECURITY.md" />
     </Folder>
@@ -22,25 +22,12 @@
         <File Path="Directory.Build.props" />
         <File Path="Directory.Packages.props" />
     </Folder>
-    <Folder Name="/Samples/">
-        <Project Path="samples/minimal-working-sample/waveIDE.MinimalWorkingSample.csproj" Id="b924251c-cb3f-455a-95fc-fba6d3090184" />
-    </Folder>
     <Folder Name="/Source/">
         <Project Path="src/launcher/waveIDE.csproj" />
-        <Project Path="src/infra/waveIDE.Infrastructure.csproj" />
     </Folder>
     <Folder Name="/Source/Engine/" />
-    <Folder Name="/Source/Plugin System/">
-        <Project Path="src/sdk/waveIDE.SDK.Clients.APIs/waveIDE.SDK.Clients.APIs.csproj" />
-        <Project Path="src/sdk/waveIDE.SDK.Clients/waveIDE.SDK.Clients.csproj" />
-        <Project Path="src/sdk/waveIDE.SDK.Infrastructure.Manifests/waveIDE.SDK.Infrastructure.Manifests.csproj" />
-        <Project Path="src/sdk/waveIDE.SDK.Protocol/waveIDE.SDK.Protocol.csproj" />
-    </Folder>
     <Folder Name="/Source/UI/">
         <Project Path="src/ui/waveIDE.UI.Desktop/waveIDE.UI.Desktop.csproj" />
     </Folder>
     <Folder Name="/Tests/" />
-    <Folder Name="/Tests/Plugin System/">
-        <Project Path="tests/sdk/waveIDE.IpcTestServerLauncher/waveIDE.IpcTestServerLauncher.csproj" Id="9b11241a-0cd5-4c76-b914-f96a69c63a95" />
-    </Folder>
 </Solution>
