@@ -7,7 +7,9 @@
         <File Path="SECURITY.md" />
     </Folder>
     <Folder Name="/Items/Assets/">
-        <File Path="assets/avalonia-logo.ico" />
+        <File Path="assets/logo.png" />
+        <File Path="assets/circle-blue.png" />
+        <File Path="assets/circle.svg" />
     </Folder>
     <Folder Name="/Items/GitHub Setup/">
         <File Path=".github/CODEOWNERS" />
