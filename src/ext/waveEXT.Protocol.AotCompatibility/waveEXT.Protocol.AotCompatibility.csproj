@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>OceanApocalypse.Wave.Extensibility.Protocol.AotCompatibility</RootNamespace>
+		<Nullable>enable</Nullable>
+		<IsAotCompatible>true</IsAotCompatible>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="StreamJsonRpc" />
+	</ItemGroup>
+
+</Project>

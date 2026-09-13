@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RootNamespace>OceanApocalypse.Wave.Extensibility.Tests.IpcLauncher.Clients</RootNamespace>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<PublishAot>true</PublishAot>
+		<InvariantGlobalization>true</InvariantGlobalization>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="StreamJsonRpc" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\src\ext\waveEXT.Protocol.AotCompatibility\waveEXT.Protocol.AotCompatibility.csproj" />
+		<ProjectReference Include="..\..\..\src\ext\waveEXT.Protocol.Transport\waveEXT.Protocol.Transport.csproj" />
+		<ProjectReference Include="..\waveEXT.IpcTestServerLauncher\waveEXT.IpcTestServerLauncher.csproj" />
+	</ItemGroup>
+
+</Project>

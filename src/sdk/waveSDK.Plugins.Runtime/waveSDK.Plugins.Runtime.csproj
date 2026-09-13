@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<RootNamespace>OceanApocalypse.Wave.SDK.Plugins.Runtime</RootNamespace>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="StreamJsonRpc" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\waveSDK.Protocol.Transport\waveSDK.Protocol.Transport.csproj" />
+		<ProjectReference Include="..\waveSDK.Protocol.AotCompatibility\waveSDK.Protocol.AotCompatibility.csproj" />
+	</ItemGroup>
+
+</Project>

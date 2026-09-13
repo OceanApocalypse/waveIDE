@@ -7,13 +7,20 @@ Licensing notes for all projects under **The waveIDE Project**.
 ### waveIDE
 **waveIDE**, including the engine, the UI and the launcher, is licensed under AGPL, Version 3.0 or later.
 
-**Scope:** `src/**/*`    \
+**Scope:** `src/**` except for `src/ext/**` and `src/sdk/**`    \
 **License text:** [`LICENSE.txt`](LICENSE.txt)
 
-### waveSDK
-waveIDE's plugin SDK, called **waveSDK**, is licensed under the Apache License, Version 2.0.
+### waveEXT
+waveIDE's extensibility system, called **[waveEXT](src/ext/README.md)**, is licensed under the Apache License, Version 2.0.
 
-**See:** https://github.com/OceanApocalypse/waveSDK/
+**Scope:** `src/ext/**`    \
+**License text:** [`src/ext/LICENSE.txt`](src/ext/LICENSE.txt)
+
+### waveSDK
+waveIDE's plugin SDK, called **[waveSDK](src/sdk/README.md)**, is licensed under the Apache License, Version 2.0.
+
+**Scope:** `src/sdk/**`    \
+**License text:** [`src/sdk/LICENSE.txt`](src/sdk/LICENSE.txt)
 
 ### waveIDE Documentation
 **waveIDE's documentation** is external to this repository and is licensed under its own terms.

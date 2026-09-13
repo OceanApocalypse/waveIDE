@@ -27,9 +27,24 @@
     <Folder Name="/Source/">
         <Project Path="src/launcher/waveIDE.csproj" />
     </Folder>
+    <Folder Name="/Source/waveSDK/">
+	   	<Project Path="src/sdk/waveSDK.Plugins.APIs/waveSDK.Plugins.APIs.csproj" />
+	    <Project Path="src/sdk/waveSDK.Plugins.Runtime/waveSDK.Plugins.Runtime.csproj" />
+	</Folder>
+    <Folder Name="/Source/waveEXT/">
+	   	<Project Path="src/ext/waveEXT.Common/waveEXT.Common.csproj" />
+	    <Project Path="src/ext/waveEXT.Manifest/waveEXT.Manifest.csproj" />
+	    <Project Path="src/ext/waveEXT.Plugins.Lifecycle/waveEXT.Plugins.Lifecycle.csproj" />
+	    <Project Path="src/ext/waveEXT.Protocol.AotCompatibility/waveEXT.Protocol.AotCompatibility.csproj" />
+	    <Project Path="src/ext/waveEXT.Protocol.Transport/waveEXT.Protocol.Transport.csproj" />
+    </Folder>
     <Folder Name="/Source/Engine/" />
     <Folder Name="/Source/UI/">
         <Project Path="src/ui/waveIDE.UI.Desktop/waveIDE.UI.Desktop.csproj" />
     </Folder>
     <Folder Name="/Tests/" />
+    <Folder Name="/Tests/waveEXT/">
+        <Project Path="tests/ext/waveEXT.IpcTestClientLauncher/waveEXT.IpcTestClientLauncher.csproj" />
+        <Project Path="tests/ext/waveEXT.IpcTestServerLauncher/waveEXT.IpcTestServerLauncher.csproj" />
+    </Folder>
 </Solution>

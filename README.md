@@ -34,14 +34,14 @@
 
 It is part of [Ocean Apocalypse](https://oceanapocalypse.org)'s **waveIDE Project**, which is comprised of four subprojects:
 - **waveIDE**
-- **[waveEXT](https://github.com/OceanApocalypse/waveEXT/):** the extensibility system used internally by waveIDE.
-- **[waveSDK](https://github.com/OceanApocalypse/waveSDK/):** the plugin SDK that programmers can use to add their own functionality into waveIDE.
+- **[waveEXT](src/ext/README.md):** the extensibility system used internally by waveIDE.
+- **[waveSDK](src/sdk/README.md):** the plugin SDK that programmers can use to add their own functionality into waveIDE.
 - **[waveIDE Documentation](https://github.com/OceanApocalypse/waveIDE-docs/):** the documentation for the three items above (this is also known as `waveIDE-docs`).
 
 ### Useful links
 This README intends to be a quick installation and contribution guide. For more advanced content, we present you some very useful links.
-- [Official waveIDE documentation](https://oceanapocalypse.org/waveIDE-docs/)
-- ~~Why waveIDE?~~ (coming soon!)
+- **[Official waveIDE documentation](https://oceanapocalypse.org/waveIDE-docs/)**
+- **~~Behind waveIDE~~** (coming soon!)
 
 ***
 
