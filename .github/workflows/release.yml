@@ -36,8 +36,7 @@ jobs:
 
       - id: set-semver-var
         name: Set version variable
-        shell: pwsh
-        run: ./scripts/set-semver-var.ps1 -RefType "${{ github.ref_type }}" -RefName "${{ github.ref_name }}"
+        run: ./scripts/set-semver-var.sh "${{ github.ref_type }}" "${{ github.ref_name }}"
 
   # Performs an analysis with Sonar.
   sonar-analysis:
@@ -179,8 +178,7 @@ jobs:
       run: dotnet restore
 
     - name: Publish launcher
-      shell: pwsh
-      run: ./scripts/publish-native-aot.ps1 'launcher' "${{ matrix.rid-os }}" "${{ matrix.arch }}"
+      run: ./scripts/publish-native-aot.sh launcher "${{ matrix.rid-os }}" "${{ matrix.arch }}"
 
     - name: Upload launcher artifacts
       uses: actions/upload-artifact@v4
@@ -221,8 +219,7 @@ jobs:
         cat ${{ github.workspace }}-CHANGELOG.md
         
     - name: Prepare release assets
-      shell: pwsh
-      run: ./scripts/prepare-assets.ps1
+      run: ./scripts/prepare-assets.sh
 
     - name: Attest release assets
       uses: actions/attest@v4
