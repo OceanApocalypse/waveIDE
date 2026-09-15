@@ -25,6 +25,7 @@
         <File Path="Directory.Packages.props" />
     </Folder>
     <Folder Name="/Source/">
+	   	<Project Path="src/core/waveIDE.Common/waveIDE.Common.csproj" />
         <Project Path="src/launcher/waveIDE.csproj" />
     </Folder>
     <Folder Name="/Source/waveSDK/">
@@ -32,7 +33,6 @@
 	    <Project Path="src/sdk/waveSDK.Plugins.Runtime/waveSDK.Plugins.Runtime.csproj" />
 	</Folder>
     <Folder Name="/Source/waveEXT/">
-	   	<Project Path="src/ext/waveEXT.Common/waveEXT.Common.csproj" />
 	    <Project Path="src/ext/waveEXT.Manifest/waveEXT.Manifest.csproj" />
 	    <Project Path="src/ext/waveEXT.Plugins.Lifecycle/waveEXT.Plugins.Lifecycle.csproj" />
 	    <Project Path="src/ext/waveEXT.Protocol.AotCompatibility/waveEXT.Protocol.AotCompatibility.csproj" />
