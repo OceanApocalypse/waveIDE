@@ -11,8 +11,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\waveSDK.Protocol.Transport\waveSDK.Protocol.Transport.csproj" />
-		<ProjectReference Include="..\waveSDK.Protocol.AotCompatibility\waveSDK.Protocol.AotCompatibility.csproj" />
+		<ProjectReference Include="..\waveEXT.Protocol.Transport\waveEXT.Protocol.Transport.csproj" />
+		<ProjectReference Include="..\waveEXT.Protocol.AotCompatibility\waveEXT.Protocol.AotCompatibility.csproj" />
 	</ItemGroup>
 
 </Project>
