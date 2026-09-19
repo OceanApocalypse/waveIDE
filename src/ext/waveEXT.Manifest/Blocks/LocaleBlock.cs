@@ -25,7 +25,7 @@ namespace OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
 /// A representation of the declaration of a locale.
 /// </summary>
 /// <remarks>
-/// This is an object for TOML serialization and deserialization, thus
+/// This is an object for JSON serialization and deserialization, thus
 /// not being used to define locales in plugins.
 /// </remarks>
 /// <param name="IsoName">

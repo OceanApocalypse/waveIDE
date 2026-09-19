@@ -29,7 +29,7 @@ namespace OceanApocalypse.Wave.Extensibility.Manifest;
 /// A representation of a plugin manifest.
 /// </summary>
 /// <remarks>
-/// This is an object for TOML serialization and deserialization, thus
+/// This is an object for JSON serialization and deserialization, thus
 /// not being used to define actual plugins.
 /// </remarks>
 /// <param name="Id">The ID of the plugin.</param>

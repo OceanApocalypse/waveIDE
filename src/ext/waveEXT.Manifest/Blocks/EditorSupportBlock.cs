@@ -25,7 +25,7 @@ namespace OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
 /// A block that represents the declaration of supported and unsupported editors.
 /// </summary>
 /// <remarks>
-/// This is an object for TOML serialization and deserialization, thus
+/// This is an object for JSON serialization and deserialization, thus
 /// not being used to define editor support in plugins.
 /// </remarks>
 /// <param name="CompatibleWith">

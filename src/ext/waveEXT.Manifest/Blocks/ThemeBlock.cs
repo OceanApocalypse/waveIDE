@@ -23,7 +23,7 @@ namespace OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
 /// A block that represents the declaration of a theme.
 /// </summary>
 /// <remarks>
-/// This is an object for TOML serialization and deserialization, thus
+/// This is an object for JSON serialization and deserialization, thus
 /// not being used to define themes in plugins.
 /// </remarks>
 /// <param name="Name">The name of the theme.</param>

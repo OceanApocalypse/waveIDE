@@ -26,7 +26,7 @@ namespace OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
 /// to function correctly.
 /// </summary>
 /// <remarks>
-/// This is an object for TOML serialization and deserialization, thus
+/// This is an object for JSON serialization and deserialization, thus
 /// not being used to define permissions for plugins.
 /// </remarks>
 /// <param name="Scopes">A read-only list of the scopes the plugin needs access to.</param>

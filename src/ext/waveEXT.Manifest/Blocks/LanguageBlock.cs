@@ -25,7 +25,7 @@ namespace OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
 /// A block that represents the declaration of support for a programming language.
 /// </summary>
 /// <remarks>
-/// This is an object for TOML serialization and deserialization, thus
+/// This is an object for JSON serialization and deserialization, thus
 /// not being used to define language support in plugins.
 /// </remarks>
 /// <param name="Id">The language ID.</param>

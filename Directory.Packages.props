@@ -19,9 +19,6 @@
     <!-- Host <-> Plugin connection -->
     <PackageVersion Include="StreamJsonRpc" Version="2.25.29" />
 
-    <!-- TOML -->
-    <PackageVersion Include="CsToml" Version="1.8.6" />
-
     <!-- Tests and benchmarks -->
     <PackageVersion Include="xunit.v3.mtp-v2" Version="3.2.2" />
     <PackageVersion Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.9.0" />
