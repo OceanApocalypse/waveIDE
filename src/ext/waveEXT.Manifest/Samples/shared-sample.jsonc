@@ -1,0 +1,131 @@
+// ========================================================================================= //
+// Shared manifest - for when a single plugin supports multiple SDKs, operating systems, etc //
+// ========================================================================================= //
+
+{
+  "manifestFormat": "shared", // mandatory
+
+  "plugin": {
+    // the main metadata - cannot be specific
+    "id": "dev.bob.my-plugin", // the plugin's unique ID - mandatory
+    "version": "3.0.1", // version of the plugin - mandatory
+    "displayName": "Bob's Awesome Plugin", // display name of the plugin
+    "author": "Bob", // name of the author
+    "license": "Apache-2.0", // the SPDX license expression of the plugin
+    "language": "C#", // the programming language the plugin is written in - used only for metadata
+    "urls": [
+      // URLs linked to this plugin
+      {
+        "type": "source", // types are source, docs, home, tracker and other
+        "value": "https://invent.example.com/", // the actual URL
+      },
+      {
+        "type": "docs",
+        "name": "Our Documentation",
+        "value": "https://example.com/product-docs/",
+      },
+    ],
+  },
+
+  "permissions": {
+    // defines permissions the plugin requires - cannot be specific
+    "scopes": [
+      "trust:read",
+      "workspace:read",
+      "workspace:write",
+      "debug:write",
+    ],
+  },
+
+  "compatibility": {
+    // can be shared, but is overriden by every specific that has its own specific compat settings
+    // defines the compatibility contract
+    "conflicts": ["dev.joe.i-hate-bob"], // plugins that lead to conflicts when installed alongside each other
+
+    // editors where the compatibility with the plugin is known to exist - tested
+    // it's the editor that enforces this policy
+    "compatibleEditors": [
+      "waveIDE", // targetting all versions for an editor
+      "waveIDE:*", // same as above
+      "waveIDE:3", // specific major version
+      "waveIDE:3-1", // major version ranges
+      "waveIDE:3.0", // specific minor versions
+      "waveIDE:3.0.1", // specific patch versions
+      "waveIDE:2-", // every version until a given one (included),
+      "waveIDE:3.0.1-/",
+      "waveIDE:3.1-2.9.0", // minor and patch ranges
+      "waveIDE:2026", // year (any version dating '26 is compatible)
+      "waveIDE:latest", // latest version
+    ],
+    "incompatibleEditors": ["waveIDE:beta"], // editors where the compatibility is known to not exist - tested
+
+    // defaults to false; if true, any editor not in 'compatible' is automatically incompatible
+    // if false, editors not in 'compatible' are considered compatible but untested
+    // it's the editor that decides whether something untested should still run or be disabled
+    "unspecifiedAreIncompatible": true,
+  },
+
+  "themes": [
+    // all themes that any target adds must be defined but they don't have to point to a file yet
+    {
+      "name": "Example Theme",
+      "file": "path/to/theme", // optional, this means this theme is by default path/to/theme unless overriden by each specific
+    },
+    {
+      "name": "Bob's Amazing Theme", // no file means each specific has to provide its own path to this theme
+    },
+  ],
+
+  "locales": [
+    // all locales that any target adds must be defined but they don't have to point to a file yet
+    {
+      "isoName": "pt", // must match a ISO 639-1/639-3 name
+      "cultureName": "pt-PT", // must match a .NET culture name
+      "file": "path/to/file", // optional, this means this locale is by default path/to/file unless a given specific overrides it
+    },
+    {
+      "isoName": "sk", // must match a ISO 639-1/639-3 name
+      "cultureName": "sk-SK", // must match a .NET culture name
+      // no file means each specific has to override
+    },
+  ],
+
+  "languages": {
+    // all languages that any target adds must be defined here - they're purely
+    // declaration blocks so it doesn't make sense for them to be specific
+    "rsml": {
+      // the ID - must not contain spaces
+      "name": "Red Sea Modern Language", // language name (friendly name)
+      "fileExtensions": ["*.rsea", "*.rsml", "*.decision"], // allowed file extensions
+      "mimeType": "application/rsml", // allowed mime types
+      "capabilities": {
+        // some editors read these and automatically assume some missing scopes as true
+        "lsp": true,
+        "formatter": true,
+        "debugger": true,
+      },
+    },
+  },
+
+  // targets block is mandatory in shared manifest
+  // targets are ordered by specificity
+  // on a machine where waveIDE uses SDK v3 and the CPU architecture is arm64,
+  // Sdk3Arm64 will be chosen over Sdk3, even though Sdk3 constraint is defined before
+  "targets": [
+    {
+      "apiVersion": "3.x.x",
+      "path": "Sdk3/manifest.json",
+    },
+    {
+      "apiVersion": "3", // same as 3.x.x
+      "arch": "arm64",
+      "path": "Sdk3Arm64/manifest.json",
+    },
+    {
+      "apiVersion": "2.x", // same as 2.x.x
+      "os": "linux",
+      "arch": "x64",
+      "path": "Sdk2LinuxX64/manifest.json",
+    },
+  ],
+}
