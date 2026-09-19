@@ -21,8 +21,8 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
+using OceanApocalypse.Wave.Extensibility.Protocol.AotCompatibility;
 using OceanApocalypse.Wave.SDK.Plugins.Runtime.States;
-using OceanApocalypse.Wave.SDK.Protocol.AotCompatibility;
 
 using StreamJsonRpc;
 

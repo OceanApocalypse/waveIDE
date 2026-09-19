@@ -22,14 +22,14 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-using OceanApocalypse.Wave.SDK.Protocol.Transport;
+using OceanApocalypse.Wave.Extensibility.Protocol.Transport;
 
 namespace OceanApocalypse.Wave.SDK.Plugins.Runtime;
 
 /// <summary>
 /// A factory class for creating plugin connections.
 /// </summary>
-public sealed class PluginFactory : IPluginFactory
+public sealed class PluginFactory
 {
     /// <inheritdoc/>
     public static async Task<IPluginProxy> ConnectAsync(string? endpoint, CancellationToken cancellationToken)
