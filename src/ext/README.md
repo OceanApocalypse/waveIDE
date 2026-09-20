@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../../assets/ext-logo.png" alt="waveEXT Logo" align="center" width="150">
+<img src="../../assets/ext-logo.svg" alt="waveEXT Logo" align="center" width="175">
 
 # waveEXT
 [Getting Started](#getting-started) • [Documentation](https://oceanapocalypse.org/waveIDE-docs/)

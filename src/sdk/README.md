@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../../assets/sdk-logo.png" alt="waveSDK Logo" align="center" width="150">
+<img src="../../assets/sdk-logo.svg" alt="waveSDK Logo" align="center" width="175">
 
 # waveSDK
 [Getting Started](#writing-a-basic-plugin) • [Documentation](https://oceanapocalypse.org/waveIDE-docs/)

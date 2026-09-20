@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" alt="waveIDE Logo" align="center" width="150">
+<img src="assets/logo.svg" alt="waveIDE Logo" align="center" width="175">
 
 # waveIDE
 [Getting Started](#getting-started) • [Screenshots](#screenshots) • [Documentation](https://oceanapocalypse.org/waveIDE-docs/) • [Contribute](https://github.com/OceanApocalypse/.github/blob/main/CONTRIBUTING.md)

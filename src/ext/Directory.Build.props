@@ -17,7 +17,8 @@
     </PropertyGroup>
 
     <ItemGroup Label="Resources">
-        <None Include="$(MSBuildThisFileDirectory)..\..\assets\icon.png" Pack="true" PackagePath="\"
+        <None Include="$(MSBuildThisFileDirectory)..\..\assets\128x128\waveIDE-128.png" Pack="true"
+            PackagePath="\"
             Visible="false" />
         <None Include="$(MSBuildThisFileDirectory)..\..\README.md" Pack="true" PackagePath="\"
             Visible="false" />

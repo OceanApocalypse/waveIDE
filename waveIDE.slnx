@@ -7,9 +7,9 @@
         <File Path="SECURITY.md" />
     </Folder>
     <Folder Name="/Items/Assets/">
-        <File Path="assets/logo.png" />
-        <File Path="assets/circle-blue.png" />
-        <File Path="assets/circle.svg" />
+        <File Path="assets/logo.svg" />
+        <File Path="assets/logo-nightly.svg" />
+        <File Path="assets/logo-flat.svg" />
     </Folder>
     <Folder Name="/Items/GitHub Setup/">
         <File Path=".github/CODEOWNERS" />
@@ -29,12 +29,12 @@
         <Project Path="src/launcher/waveIDE.csproj" />
     </Folder>
     <Folder Name="/Source/waveSDK/">
-	   	<Project Path="src/sdk/waveSDK.Plugins.APIs/waveSDK.Plugins.APIs.csproj" />
-	    <Project Path="src/sdk/waveSDK.Plugins.Runtime/waveSDK.Plugins.Runtime.csproj" />
+        <Project Path="src/sdk/waveSDK.APIs/waveSDK.APIs.csproj" />
+        <Project Path="src/sdk/waveSDK.Runtime/waveSDK.Runtime.csproj" />
 	</Folder>
     <Folder Name="/Source/waveEXT/">
-	    <Project Path="src/ext/waveEXT.Manifest/waveEXT.Manifest.csproj" />
 	    <Project Path="src/ext/waveEXT.Plugins.Lifecycle/waveEXT.Plugins.Lifecycle.csproj" />
+        <Project Path="src/ext/waveEXT.Plugins.Manifest/waveEXT.Plugins.Manifest.csproj" />
 	    <Project Path="src/ext/waveEXT.Protocol.AotCompatibility/waveEXT.Protocol.AotCompatibility.csproj" />
 	    <Project Path="src/ext/waveEXT.Protocol.Transport/waveEXT.Protocol.Transport.csproj" />
     </Folder>
