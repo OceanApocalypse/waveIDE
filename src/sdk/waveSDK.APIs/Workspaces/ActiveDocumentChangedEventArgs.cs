@@ -14,39 +14,30 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
- * under the License.
+ * under the License.    
 */
 
-namespace OceanApocalypse.Wave.SDK.Plugins.Runtime.States;
+using System;
+
+namespace OceanApocalypse.Wave.Extensibility.Plugins.SDK.APIs.Workspaces;
 
 /// <summary>
-/// Represents the possible states for a plugin.
+/// Arguments for evens that are triggered when the document focus changes.
 /// </summary>
-public enum PluginState
+public class ActiveDocumentChangedEventArgs : EventArgs
 {
     /// <summary>
-    /// The plugin's state is unknown.
+    /// The document ID of the previously active document.
     /// </summary>
-    Unknown,
+    public int PreviousDocId { get; set; }
 
     /// <summary>
-    /// The plugin is connected, but not ready.
+    /// The document ID of the currently active document.
     /// </summary>
-    Connected,
+    public int CurrentDocId { get; set; }
 
     /// <summary>
-    /// The plugin is connected and ready, but hasn't registered everything yet.
+    /// Whether the current document is read-only.
     /// </summary>
-    Ready,
-
-    /// <summary>
-    /// The plugin is connected, ready and has registered everything.
-    /// </summary>
-    Initialized,
-
-    /// <summary>
-    /// The plugin is not connected.
-    /// </summary>
-    Disconnected
+    public bool IsCurrentReadOnly { get; set; }
 }
-

@@ -17,12 +17,19 @@
  * under the License.    
 */
 
-namespace OceanApocalypse.Wave.SDK.Plugins.APIs.Workspaces;
+using System;
+
+namespace OceanApocalypse.Wave.Extensibility.Plugins.SDK.APIs.Workspaces;
 
 /// <summary>
-/// The API for plugins to interact with the workspace.
+/// Arguments for events that are triggered when documents are edited.
 /// </summary>
-public sealed class WorkspaceApi
+public class DocumentEditedEventArgs : EventArgs
 {
+    /// <summary>
+    /// The ID of the edited document.
+    /// </summary>
+    public Guid DocId { get; set; }
 
+    // todo: add actual args for what was edited and where
 }

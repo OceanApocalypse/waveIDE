@@ -17,22 +17,36 @@
  * under the License.
 */
 
-using System;
-
-namespace OceanApocalypse.Wave.SDK.Plugins.Runtime.States;
+namespace OceanApocalypse.Wave.Extensibility.Plugins.SDK.Runtime.States;
 
 /// <summary>
-/// Arguments for events triggered when a plugin's state changes.
+/// Represents the possible states for a plugin.
 /// </summary>
-public class PluginStateChangedEventArgs : EventArgs
+public enum PluginState
 {
     /// <summary>
-    /// The previous plugin state.
+    /// The plugin's state is unknown.
     /// </summary>
-    public PluginState PreviousState { get; init; } = PluginState.Unknown;
+    Unknown,
 
     /// <summary>
-    /// The current plugin state.
+    /// The plugin is connected, but not ready.
     /// </summary>
-    public required PluginState NewState { get; init; }
+    Connected,
+
+    /// <summary>
+    /// The plugin is connected and ready, but hasn't registered everything yet.
+    /// </summary>
+    Ready,
+
+    /// <summary>
+    /// The plugin is connected, ready and has registered everything.
+    /// </summary>
+    Initialized,
+
+    /// <summary>
+    /// The plugin is not connected.
+    /// </summary>
+    Disconnected
 }
+

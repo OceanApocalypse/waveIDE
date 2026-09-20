@@ -14,22 +14,25 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
- * under the License.    
+ * under the License.
 */
 
 using System;
 
-namespace OceanApocalypse.Wave.SDK.Plugins.APIs.Workspaces;
+namespace OceanApocalypse.Wave.Extensibility.Plugins.SDK.Runtime.States;
 
 /// <summary>
-/// Arguments for events that are triggered when documents are edited.
+/// Arguments for events triggered when a plugin's state changes.
 /// </summary>
-public class DocumentEditedEventArgs : EventArgs
+public class PluginStateChangedEventArgs : EventArgs
 {
     /// <summary>
-    /// The ID of the edited document.
+    /// The previous plugin state.
     /// </summary>
-    public Guid DocId { get; set; }
+    public PluginState PreviousState { get; init; } = PluginState.Unknown;
 
-    // todo: add actual args for what was edited and where
+    /// <summary>
+    /// The current plugin state.
+    /// </summary>
+    public required PluginState NewState { get; init; }
 }

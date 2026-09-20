@@ -40,7 +40,7 @@ public partial class MainView : DrawerPage
     {
         if (ContentPage != null && sender is ListBox listbox)
         {
-            var index = listbox.SelectedIndex;
+            int index = listbox.SelectedIndex;
             UpdatePage(index);
         }
     }

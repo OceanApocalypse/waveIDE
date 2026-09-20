@@ -24,15 +24,15 @@ using System.Threading.Tasks;
 
 using OceanApocalypse.Wave.Extensibility.Protocol.Transport;
 
-namespace OceanApocalypse.Wave.SDK.Plugins.Runtime;
+namespace OceanApocalypse.Wave.Extensibility.Plugins.SDK.Runtime;
 
 /// <summary>
 /// A factory class for creating plugin connections.
 /// </summary>
-public sealed class PluginFactory
+public static class PluginFactory
 {
     /// <inheritdoc/>
-    public static async Task<IPluginProxy> ConnectAsync(string? endpoint, CancellationToken cancellationToken)
+    public static async Task<PluginContext> ConnectAsync(string? endpoint, CancellationToken cancellationToken)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(endpoint);
 
@@ -41,7 +41,7 @@ public sealed class PluginFactory
     }
 
     /// <inheritdoc/>
-    public static async Task<IPluginProxy> ConnectAsync(string[] args, CancellationToken cancellationToken) =>
+    public static async Task<PluginContext> ConnectAsync(string[] args, CancellationToken cancellationToken) =>
         await ConnectAsync(
             args.Length == 0 ? Environment.GetEnvironmentVariable("WAVEIDE_IPC_ENDPOINT") : args[0],
             cancellationToken

@@ -19,13 +19,13 @@
 
 using System;
 
-using OceanApocalypse.Wave.SDK.Plugins.Runtime.States;
+using OceanApocalypse.Wave.Extensibility.Plugins.SDK.Runtime.States;
 
 using PolyType;
 
 using StreamJsonRpc;
 
-namespace OceanApocalypse.Wave.SDK.Plugins.Runtime;
+namespace OceanApocalypse.Wave.Extensibility.Plugins.SDK.Runtime;
 
 /// <summary>
 /// Represents a proxy for an instance of a plugin.
@@ -42,9 +42,4 @@ namespace OceanApocalypse.Wave.SDK.Plugins.Runtime;
 public partial interface IPluginProxy : IAsyncDisposable
 #pragma warning restore CS3027
 {
-    /// <summary>
-    /// This event is triggered when the current plugin's state changes.
-    /// This collapses connected, ready, registered and disconnected events into a single one.
-    /// </summary>
-    event EventHandler<PluginStateChangedEventArgs> OnStateChanged;
 }
