@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net10.0</TargetFramework>
-		<RootNamespace>OceanApocalypse.Wave.Extensibility.Manifest</RootNamespace>
+		<RootNamespace>OceanApocalypse.Wave.Extensibility.Plugins.Manifest</RootNamespace>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 

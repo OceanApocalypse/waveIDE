@@ -21,9 +21,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-using OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
+using OceanApocalypse.Wave.Extensibility.Plugins.Manifest.Blocks;
 
-namespace OceanApocalypse.Wave.Extensibility.Manifest;
+namespace OceanApocalypse.Wave.Extensibility.Plugins.Manifest;
 
 /// <summary>
 /// A representation of a plugin manifest.

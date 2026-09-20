@@ -17,29 +17,25 @@
  * under the License.    
 */
 
-using System.Globalization;
+using System.Collections.Generic;
 
-namespace OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
+namespace OceanApocalypse.Wave.Extensibility.Plugins.Manifest.Blocks;
 
 /// <summary>
-/// A representation of the declaration of a locale.
+/// A block that represents the declaration of the necessary permissions for the plugin
+/// to function correctly.
 /// </summary>
 /// <remarks>
 /// This is an object for JSON serialization and deserialization, thus
-/// not being used to define locales in plugins.
+/// not being used to define permissions for plugins.
 /// </remarks>
-/// <param name="IsoName">
-/// The ISO 639-1 or ISO 639-3 name of the locale.
-/// (See <see cref="CultureInfo.TwoLetterISOLanguageName"/>.)
+/// <param name="Scopes">A read-only list of the scopes the plugin needs access to.</param>
+/// <param name="LoadDynamically">
+/// When set to <c>true</c>, the plugin will be allowed to dynamically request intents at runtime.
+/// Setting this to <c>true</c> does not mean the intents will be automatically granted, as the host
+/// has the ultimate saying in what happens.
 /// </param>
-/// <param name="CultureName">
-/// The name followed by the associated country code. It's either
-/// "{<see cref="IsoName"/>}-{CountryCode}" or the region code.
-/// (See <see cref="CultureInfo.Name"/>.)
-/// </param>
-/// <param name="FilePath">The path to the file that contains the actual locale data.</param>
-public record LocaleBlock(
-    string IsoName,
-    string CultureName,
-    string FilePath
+public record PermissionBlock(
+    IReadOnlyList<string> Scopes,
+    bool LoadDynamically
 );

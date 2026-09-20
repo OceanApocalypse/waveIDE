@@ -19,7 +19,7 @@
 
 using System.Collections.Generic;
 
-namespace OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
+namespace OceanApocalypse.Wave.Extensibility.Plugins.Manifest.Blocks;
 
 /// <summary>
 /// A block that represents the declaration of support for a programming language.

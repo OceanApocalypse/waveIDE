@@ -17,7 +17,7 @@
  * under the License.    
 */
 
-namespace OceanApocalypse.Wave.Extensibility.Manifest.Blocks;
+namespace OceanApocalypse.Wave.Extensibility.Plugins.Manifest.Blocks;
 
 /// <summary>
 /// A block that represents the declaration of a theme.
