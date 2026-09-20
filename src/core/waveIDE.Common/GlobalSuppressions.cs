@@ -25,5 +25,5 @@
 using System.Diagnostics.CodeAnalysis;
 
 // IDE0046: Convert to conditional expression
-[assembly: SuppressMessage("Style", "IDE0046", Justification = "The conditional expression makes the code not obvious.", Scope = "member", Target = "~M:OceanApocalypse.Wave.Extensibility.Operations.Result`2.GetHashCode~System.Int32")]
-[assembly: SuppressMessage("Style", "IDE0046", Justification = "The conditional expression makes the code not obvious.", Scope = "member", Target = "~M:OceanApocalypse.Wave.Extensibility.Operations.Result`2.Equals(OceanApocalypse.Wave.Extensibility.Operations.Result{`0,`1})~System.Boolean")]
+[assembly: SuppressMessage("Style", "IDE0046", Justification = "The conditional expression makes the code not obvious.", Scope = "member", Target = "~M:OceanApocalypse.Wave.Operations.Result`2.GetHashCode~System.Int32")]
+[assembly: SuppressMessage("Style", "IDE0046", Justification = "The conditional expression makes the code not obvious.", Scope = "member", Target = "~M:OceanApocalypse.Wave.Operations.Result`2.Equals(OceanApocalypse.Wave.Operations.Result{`0,`1})~System.Boolean")]
