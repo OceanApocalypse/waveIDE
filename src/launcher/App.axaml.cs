@@ -63,7 +63,7 @@ public partial class App : Application
 		}
 		else
 		{
-			throw new InvalidOperationException("waveIDE is not supported in this platform.");
+			// designer mode is the 'else' in this case so there's no need for an else clause			
 		}
 
 		base.OnFrameworkInitializationCompleted();

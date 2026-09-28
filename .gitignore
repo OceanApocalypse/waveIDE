@@ -411,8 +411,9 @@ FodyWeavers.xsd
 *.bak
 *~
 
-# KDevelop files
+# Kate and KDevelop files
 *.kdev4
 kdev4/
+.kateproject.*
 
 # Additional files

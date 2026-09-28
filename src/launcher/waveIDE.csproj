@@ -6,11 +6,6 @@
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 	</PropertyGroup>
 
-	<PropertyGroup Label="Native AOT Setup">
-		<PublishAot>true</PublishAot>
-		<IsAotCompatible>true</IsAotCompatible>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<AvaloniaResource Include="Assets\**" />
 	</ItemGroup>

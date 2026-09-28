@@ -48,7 +48,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.-->
             <Image
                 Width="150"
                 Margin="10"
-                Source="/Assets/Icon.png"
+                Source="/Assets/logo.png"
                 Stretch="Uniform" />
         </DockPanel>
     </DrawerPage.DrawerHeader>

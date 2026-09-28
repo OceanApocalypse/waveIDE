@@ -10,11 +10,6 @@
 		<GenerateDocumentationFile>false</GenerateDocumentationFile>
 	</PropertyGroup>
 
-	<PropertyGroup Label="Native AOT Setup">
-		<PublishAot>true</PublishAot>
-		<IsAotCompatible>true</IsAotCompatible>
-	</PropertyGroup>
-
 	<PropertyGroup>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
