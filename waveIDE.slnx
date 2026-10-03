@@ -34,7 +34,6 @@
 	</Folder>
     <Folder Name="/Source/waveEXT/">
         <Project Path="src/ext/waveEXT.Plugins.Manifest/waveEXT.Plugins.Manifest.csproj" />
-	    <Project Path="src/ext/waveEXT.Protocol.AotCompatibility/waveEXT.Protocol.AotCompatibility.csproj" />
 	    <Project Path="src/ext/waveEXT.Protocol.Transport/waveEXT.Protocol.Transport.csproj" />
     </Folder>
     <Folder Name="/Source/Engine/" />

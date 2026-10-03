@@ -22,7 +22,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-using OceanApocalypse.Wave.Extensibility.Protocol.AotCompatibility;
 using OceanApocalypse.Wave.Extensibility.Protocol.Transport;
 
 using StreamJsonRpc;
@@ -40,10 +39,7 @@ internal sealed class Program
         Console.WriteLine($"Server started at {endpoint}.");
 
         Stream server = await listener.AcceptConnectionAsync(new()).ConfigureAwait(false);
-
-        using SystemTextJsonFormatter formatter = NativeJsonHelper.CreateSourceGenerationFormatter();
-        using HeaderDelimitedMessageHandler handler = new(server, formatter);
-        using JsonRpc rpc = new(handler);
+        using var rpc = JsonRpc.Attach(server);
 
         var targetMetadata = RpcTargetMetadata.FromShape<IServer>();
 

@@ -23,7 +23,6 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-using OceanApocalypse.Wave.Extensibility.Protocol.AotCompatibility;
 using OceanApocalypse.Wave.Extensibility.Protocol.Transport;
 using OceanApocalypse.Wave.Extensibility.Tests.IpcLauncher.Servers;
 
@@ -46,22 +45,19 @@ internal sealed class Program
         string endpoint = args[0];
 
         using Stream client = await IpcTransportFactory.ConnectToHostAsync(endpoint, new CancellationToken()).ConfigureAwait(false);
-        using SystemTextJsonFormatter formatter = NativeJsonHelper.CreateSourceGenerationFormatter();
-        using HeaderDelimitedMessageHandler handler = new(client, formatter);
-        using JsonRpc rpc = new(handler);
-        IServer proxy = rpc.Attach<IServer>();
-        rpc.StartListening();
+        IServer proxy = JsonRpc.Attach<IServer>(client);
 
-        const string str = "My amazing little string";
+        using (proxy as IDisposable)
+        {
+            const string str = "My amazing little string";
 
-        proxy.OnLogged += OnMessageLogged;
-        int len = await proxy.GetLengthOfString(str).ConfigureAwait(false);
-        Debug.Assert(len == str.Length);
+            proxy.OnLogged += OnMessageLogged;
+            int len = await proxy.GetLengthOfString(str).ConfigureAwait(false);
+            Debug.Assert(len == str.Length);
 
-        await proxy.Log("Minimal Working Sample").ConfigureAwait(false);
-        await proxy.Log("See... it doesn't die").ConfigureAwait(false);
-
-        await rpc.Completion.ConfigureAwait(false);
+            await proxy.Log("Minimal Working Sample").ConfigureAwait(false);
+            await proxy.Log("See... it doesn't die").ConfigureAwait(false);
+        }
 
         return 0;
     }

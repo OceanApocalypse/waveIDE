@@ -5,10 +5,6 @@
 		<TargetFramework>net10.0</TargetFramework>
 		<RootNamespace>OceanApocalypse.Wave.Extensibility.Tests.IpcLauncher.Servers</RootNamespace>
 		<Nullable>enable</Nullable>
-		<PublishAot>true</PublishAot>
-		<InvariantGlobalization>true</InvariantGlobalization>
-
-		<EnableStreamJsonRpcInterceptors>true</EnableStreamJsonRpcInterceptors>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,8 +12,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference
-			Include="..\..\..\src\ext\waveEXT.Protocol.AotCompatibility\waveEXT.Protocol.AotCompatibility.csproj" />
 		<ProjectReference
 			Include="..\..\..\src\ext\waveEXT.Protocol.Transport\waveEXT.Protocol.Transport.csproj" />
 	</ItemGroup>
