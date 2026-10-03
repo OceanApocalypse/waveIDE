@@ -11,10 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference
-			Include="../../ext/waveEXT.Protocol.Transport/waveEXT.Protocol.Transport.csproj" />
-		<ProjectReference
-			Include="../../ext/waveEXT.Protocol.AotCompatibility/waveEXT.Protocol.AotCompatibility.csproj" />
+		<ProjectReference Include="../../ext/waveEXT.Protocol.Transport/waveEXT.Protocol.Transport.csproj" />
 	</ItemGroup>
 
 </Project>

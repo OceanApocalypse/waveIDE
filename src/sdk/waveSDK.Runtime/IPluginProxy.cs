@@ -42,4 +42,5 @@ namespace OceanApocalypse.Wave.Extensibility.Plugins.SDK.Runtime;
 public partial interface IPluginProxy : IAsyncDisposable
 #pragma warning restore CS3027
 {
+
 }
